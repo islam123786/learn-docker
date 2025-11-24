@@ -22,18 +22,24 @@
 # Notes
 
 1. What is Docker?
-   Docker is a platform that allows developers to build, package, and run applications in containers. Containers are lightweight, portable, and self-sufficient units that contain everything needed 	 to run a piece of software — including the code, runtime, libraries, and dependencies — ensuring consistency across different environments.
+   
+   Docker is a platform that allows developers to build, package, and run applications in containers. Containers are lightweight, portable, and self-sufficient units that contain everything needed    to run a piece of software — including the code, runtime, libraries, and dependencies — ensuring consistency across different environments.
    
 2. Docker Architecture:
+   
    Docker Engine : Docker Engine is main component of Docker. It’s the runtime that builds and runs containers. It is a container engine that manages everything behind the scenes. Docker engine       contains Docker Daemon (dockerd)m, Docker CLI, Docker Client (docker).
+   
    Docker Daemon : The Docker Daemon (dockerd) is the core background service of Docker. It is the component that actually builds images, runs containers, and manages Docker objects.
+   
    Docker CLI : The Docker CLI (Command Line Interface) is the user-facing tool that you use to interact with Docker.
+   
    Docker Client : The Docker Client is a user-facing UI application that allows user to talk to Docker Engine.
+   
    Docker API : The Docker API is the RESTful interface that allows programs to communicate with the Docker Daemon (dockerd). It is the core communication layer of Docker Engine.
 
-3. Installing docker and docker compose
+4. Installing docker and docker compose
    ```
-   MacOS Steps
+   # MacOS Steps
    brew install docker docker-compose
 
    # Linux Step
@@ -49,18 +55,18 @@
    docker compose version
 
    ```
-4. Dockerfile: A Dockerfile is a text file that contains a set of instructions to build a Docker image.
-5. Docker Image: A Docker image is a read-only template used to create Docker containers. It contains everything a container needs to run an application: code, runtime, libraries, environment          variables, and configuration files.
-6. Docker Container : A Docker container is a lightweight, standalone, and executable package that runs an application. It is created from a Docker image, and it contains everything the application    needs to run: code, runtime, system tools, libraries, and settings.
+5. Dockerfile: A Dockerfile is a text file that contains a set of instructions to build a Docker image.
+6. Docker Image: A Docker image is a read-only template used to create Docker containers. It contains everything a container needs to run an application: code, runtime, libraries, environment         variables, and configuration files.
+7. Docker Container : A Docker container is a lightweight, standalone, and executable package that runs an application. It is created from a Docker image, and it contains everything the 			    application needs to run: code, runtime, system tools, libraries, and settings.
 
-7. Pulling and running the docker image
+8. Pulling and running the docker image
    ```
     docker login										# Command to login to docker account
     docker run -e MYSQL_ROOT_PASSWORD=root -d mysql
    ``` 
-8. Write a Springboot app and use docker file ro create a docker image and run the container.
+9. Write a Springboot app and use docker file ro create a docker image and run the container.
    
-	 A. Create a simple Sprinboot app with just one endpoint /greeting (use the project simple-spring-boot-app)
+   A. Create a simple Sprinboot app with just one endpoint /greeting (use the project simple-spring-boot-app)
    
    B. build the project using mvn clean package
    

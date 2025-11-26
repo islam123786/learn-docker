@@ -1,0 +1,30 @@
+services:
+  sqldb:
+    container_name: sql-db
+    image: mysql
+    environment:
+      MYSQL_DATABASE: "taskdb"
+      MYSQL_ROOT_PASSWORD: "root"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - my-network
+
+  spring-mysql-app:
+    build: .
+    image: spring-mysql-app
+    container_name: spring-mysql-app
+    depends_on:
+      - sqldb
+    ports:
+      - "8080:8080"
+    networks:
+      - my-network
+
+volumes:
+  mysql-data:
+    name: mysql-data
+
+networks:
+  my-network:
+    name: islam-network

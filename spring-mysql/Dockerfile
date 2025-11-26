@@ -1,0 +1,9 @@
+FROM maven:3.8.3-openjdk-17 AS builder
+WORKDIR /app
+COPY . /app
+RUN mvn clean install -DskipTests=true
+
+FROM openjdk:17-ea-17-jdk-slim
+WORKDIR /app
+COPY --from=builder /app/target/*.jar /app/target/app.jar
+ENTRYPOINT ["java", "-jar", "/app/target/app.jar"]
